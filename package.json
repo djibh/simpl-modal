@@ -2,18 +2,21 @@
   "name": "simpl-modal",
   "version": "1.0.1",
   "main": "dist/Modal.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc & copyfiles -u 1 src/**/*.css dist",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "react": "^18.2.0", 
+    "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^16.8.5",
+    "copyfiles": "^2.4.1",
     "typescript": "^4.3.2"
   }
 }
