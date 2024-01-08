@@ -1,10 +1,8 @@
 {
   "name": "smpl-modal",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "A simple modal you can use to pass component as props, select a theme (dark / light / neutral) and if it should be animated or not.",
-  "main": "index.ts",
-  "Module": "index.ts",
-  "Files": ["dist"],
+  "main": "src/index.ts",
   "author": "Julien Riera",
   "license": "ISC",
   "devDependencies": {
@@ -16,13 +14,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   }
 }
