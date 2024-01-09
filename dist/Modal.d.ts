@@ -3,9 +3,9 @@ import './Modal.css';
 type ModalProps = {
     className?: string;
     children: ReactNode;
-    blur?: boolean;
     animated?: boolean;
     theme?: 'neutral' | 'light' | 'dark';
+    showCloseButton?: boolean;
 };
-export default function Modal({ className, children, animated, blur, theme }: ModalProps): React.JSX.Element;
+export default function Modal({ className, children, animated, showCloseButton, theme }: ModalProps): React.JSX.Element | null;
 export {};
