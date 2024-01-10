@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Simpl Modal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simpl Modal uses the latest React 17.x features and exposes a familiar, easy to use API. It is meant to be ultra simple to use and lightweight.'
 
-## Available Scripts
+## Install
 
-In the project directory, you can run:
+```
+npm i -s simpl-modal
+```
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Use the `<Modal>` component.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```js
+import { useContext } from 'react'
+import ExampleContent from '../path/context/ExampleContext'
+import { Modal } from 'simpl-modal'
 
-### `npm test`
+export default function Example() {
+    const [ isModalOpen, setIsModalOpen ] = useContext(ExampleContext) // or use useState()
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    return (
+        <ParentComponent>
+            <ModalButton onClick={() => setIsModalOpen(true)}>
+            <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen} showCloseButton theme='neutral' animated >
+                <ChildrenComponent />
+            </Modal>
+        </ParentComponent>
+    )
+}
+```
 
-### `npm run build`
+### `Style`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I used native CSS only as I didn't want to rely on any external lib, and to keep the size of the bundle as low as possible.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `<Modal>`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Renders its children in a modal when open, nothing when not open.
 
-### `npm run eject`
+**Props**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `isOpen` \(Boolean\): A boolean that indicates whether the modal is open or not.
+- `setIsOpen` \(Function\): A setter function that updated the isOpen value.
+- [`className`] \(String\): A string that can be used to add custom CSS to the modal.
+- [`animated`] \(Boolean\): When true, this indicates that we want the modal to open/close using a predefined transition.
+- [`theme`] \(String\): Defines the background color scheme of the modal: neutral, light or dark.
+- [`showCloseButton`] \(Boolean\): When true, adds a light close button on the top-right corner of the child component. Not necessary if you already have a close button in a child component, such as a form.

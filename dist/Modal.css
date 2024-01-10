@@ -9,6 +9,11 @@
     pointer-events: none;
 }
 
+.modal-active {
+    pointer-events: all;
+    opacity: 1;
+}
+
 .modal__content {
     position: relative;
 }
@@ -17,10 +22,10 @@
     display: none;
 }
 
-.modal[data-closeButton].modal[data-closeButton]#modal__close-button{
+.modal[data-close-button] #modal__close-button{
     display: block;
     position: absolute;
-    top: -10px;
+    top: -20px;
     right: 0;
     color: red;
     font-weight: bold;
