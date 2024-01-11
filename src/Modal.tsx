@@ -44,9 +44,9 @@ export default function Modal({ isOpen, setIsOpen, className, children, animated
   }, [isOpen, setIsOpen])
   
   return (
-    <div role='dialog' className={`modal ${isOpen ? "modal-active" : ""} ${className}`} data-close-button={showCloseButton} data-animated={animated} data-theme={theme}>
+    <div role='dialog' aria-label="Modal showing new employee creation form" className={`modal ${isOpen ? "modal-active" : ""} ${className}`} data-close-button={showCloseButton} data-animated={animated} data-theme={theme}>
         <div className='modal__content'>
-          <button id='modal__close-button' onClick={handleClick}>X</button>
+          <button id='modal__close-button' role='button' aria-label='Close modal' onClick={handleClick}>X</button>
           { children }
         </div>
     </div>
